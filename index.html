@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="udacity-grader" content="http://udacity.github.io/course-web-forms/lesson2/quizCustomValidity/grader/tests.json" libraries="jsgrader" unit-tests="http://udacity.github.io/course-web-forms/lesson2/quizCustomValidity/grader/unit_tests.js">
+    <title>Quiz - setCustomValidity</title>
+    <style>
+        input {
+            margin-bottom: 1em;
+        }
+        li {
+            color: orange;
+        }
+        .none-req {
+            color: green;
+        }
+    </style>
+</head>
+<body>
+    <h3>Create a new password</h3>
+    <p>Password should meet the following requirements:</p>
+    <ul>
+        <li id="charReq">16-100 characters (longer is better)</li>
+        <li id="symReq">At least one of these symbols: !, @, #, $, %, ^, &, *</li>
+        <li id="noneReq" class="none-req">(No other symbols allowed)</li>
+        <li id="numReq">At least one number</li>
+        <li id="lowReq">At least one lowercase letter</li>
+        <li id="uppReq">At least one uppercase letter</li>
+    </ul>
+    <form>
+        <label for="first">
+            New Password
+            <input id="first" type="password" placeholder="New password" autofocus>
+        </label><br>
+        <label for="second">
+            <span id="passTwo">Repeat Password</span>
+            <input id="second" type="password" placeholder="Repeat password" >
+        </label>
+        <input id="submit" type="submit">
+        <script src="app.js"></script>
+    </form>
+</body>
+</html>
