@@ -16,13 +16,15 @@ var charReqItem = document.getElementById("charReq"),
     uppReqItem = document.getElementById("uppReq");
 
 var errorMessages = [
-  "Password must be between 16 and 100 characters long",
-  "Password must contain one of the listed symbols",
-  "Password contains illegal characters",
-  "Password must contain a number",
-  "Password must contain a lowercase letter",
-  "Password must contain an uppercase letter"
+  "•Password must be between 16 and 100 characters long",
+  "•Password must contain one of the listed symbols",
+  "•Password contains illegal characters",
+  "•Password must contain a number",
+  "•Password must contain a lowercase letter",
+  "•Password must contain an uppercase letter"
 ];
+
+var allErrors = "";
 
 var firstPasswordInput = document.querySelector('#first'),
     secondPasswordInput = document.querySelector('#second'),
@@ -98,23 +100,37 @@ secondPasswordInput.oninput = function(){
   }
 };
 
+// initiate error var
 var error;
 
 submit.onclick = function () {
   error = false;
 
-  if (oneEqualsTwo === true) {
-    for (var i = 0; i < requirements.length; i++){
-      if(requirements[i].style.color === "orange") {
-        secondPasswordInput.setCustomValidity(errorMessages[i]);
-        error = true;
-      }
+  if (oneEqualsTwo !== true) {
+      allErrors += "•Passwords must match \n";
+      error = true;
+  }
+
+  for (var i = 0; i < requirements.length; i++){
+    if(requirements[i].style.color === "orange") {
+
+      allErrors += (errorMessages[i] + "\n");
+      error = true;
     }
-    if(error === false) {
-      secondPasswordInput.setCustomValidity("");
-    }
-  } else {
-    secondPasswordInput.setCustomValidity("Your passwords must match");
+  }
+  secondPasswordInput.setCustomValidity(allErrors);
+  allErrors = "";
+
+  if(error === false) {
+    secondPasswordInput.setCustomValidity("");
+    var congratsH3 = document.createElement('h3');
+    var congratsText = document.createTextNode("You're awesome!!!");
+    congratsH3.appendChild(congratsText);
+    congratsH3.setAttribute('id', 'congrats');
+    congratsH3.style.color = 'green';
+    var form = document.querySelector('form');
+    console.log(congratsH3);
+    form.appendChild(congratsH3);
   }
 };
 
