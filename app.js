@@ -122,7 +122,6 @@ submit.onclick = function () {
   allErrors = "";
 
   if(error === false) {
-    secondPasswordInput.setCustomValidity("");
     var congratsH3 = document.createElement('h3');
     var congratsText = document.createTextNode("You're awesome!!!");
     congratsH3.appendChild(congratsText);
@@ -131,6 +130,10 @@ submit.onclick = function () {
     var form = document.querySelector('form');
     console.log(congratsH3);
     form.appendChild(congratsH3);
+
+    setTimeout(function(){
+      secondPasswordInput.setCustomValidity("");
+    },4000);
   }
 };
 
