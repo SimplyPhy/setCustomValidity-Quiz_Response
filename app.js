@@ -15,6 +15,15 @@ var charReqItem = document.getElementById("charReq"),
     lowReqItem = document.getElementById("lowReq"),
     uppReqItem = document.getElementById("uppReq");
 
+var errorMessages = [
+  "Password must be between 16 and 100 characters long",
+  "Password must contain one of the listed symbols",
+  "Password contains illegal characters",
+  "Password must contain a number",
+  "Password must contain a lowercase letter",
+  "Password must contain an uppercase letter"
+];
+
 var firstPasswordInput = document.querySelector('#first'),
     secondPasswordInput = document.querySelector('#second'),
     passTwoLabel = document.querySelector('#passTwo'),
@@ -89,9 +98,7 @@ secondPasswordInput.oninput = function(){
   }
 };
 
-var needsCorrection,
-    errorMsg = "Please correct your password",
-    error;
+var error;
 
 submit.onclick = function () {
   error = false;
@@ -99,15 +106,15 @@ submit.onclick = function () {
   if (oneEqualsTwo === true) {
     for (var i = 0; i < requirements.length; i++){
       if(requirements[i].style.color === "orange") {
-        secondPasswordInput.setCustomValidity(errorMsg);
+        secondPasswordInput.setCustomValidity(errorMessages[i]);
         error = true;
       }
-      if(i === (requirements.length - 1) && error === false) {
-        secondPasswordInput.setCustomValidity("");
-      }
+    }
+    if(error === false) {
+      secondPasswordInput.setCustomValidity("");
     }
   } else {
-    secondPasswordInput.setCustomValidity("Your passwords must be equal");
+    secondPasswordInput.setCustomValidity("Your passwords must match");
   }
 };
 

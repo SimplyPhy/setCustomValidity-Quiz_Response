@@ -21,7 +21,7 @@
     <h3>Create a new password</h3>
     <p>Password should meet the following requirements:</p>
     <ul>
-        <li id="charReq">16-100 characters (longer is better)</li>
+        <li id="charReq">Must be 16-100 characters long (longer is better)</li>
         <li id="symReq">At least one of these symbols: !, @, #, $, %, ^, &, *</li>
         <li id="noneReq" class="none-req">(No other symbols allowed)</li>
         <li id="numReq">At least one number</li>
@@ -31,11 +31,11 @@
     <form>
         <label for="first">
             New Password
-            <input id="first" type="password" placeholder="New password" autofocus>
+            <input id="first" type="password" placeholder="New password" autofocus required>
         </label><br>
         <label for="second">
             <span id="passTwo">Repeat Password</span>
-            <input id="second" type="password" placeholder="Repeat password" >
+            <input id="second" type="password" placeholder="Repeat password" required>
         </label>
         <input id="submit" type="submit">
         <script src="app.js"></script>
