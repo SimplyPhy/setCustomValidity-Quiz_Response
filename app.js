@@ -122,18 +122,16 @@ submit.onclick = function () {
   allErrors = "";
 
   if(error === false) {
-    var congratsH3 = document.createElement('h3');
-    var congratsText = document.createTextNode("You're awesome!!!");
-    congratsH3.appendChild(congratsText);
-    congratsH3.setAttribute('id', 'congrats');
-    congratsH3.style.color = 'green';
-    var form = document.querySelector('form');
-    console.log(congratsH3);
-    form.appendChild(congratsH3);
+    // var congratsH3 = document.createElement('h3');
+    // var congratsText = document.createTextNode("You're awesome!!!");
+    // congratsH3.appendChild(congratsText);
+    // congratsH3.setAttribute('id', 'congrats');           // unfortunately, this message doesn't
+    // congratsH3.style.color = 'green';                    // stick around, even with setTimeout :(
+    // var form = document.querySelector('form');
+    // console.log(congratsH3);
+    // form.appendChild(congratsH3);
 
-    setTimeout(function(){
-      secondPasswordInput.setCustomValidity("");
-    },4000);
+    secondPasswordInput.setCustomValidity("");
   }
 };
 
